@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
+    <li class="nav-item" role="presentation">
+        <a class="nav-link active" id="tab-login" data-mdb-pill-init href="#pills-login" role="tab"
+           aria-controls="pills-login" aria-selected="true">Login</a>
+    </li>
+    <li class="nav-item" role="presentation">
+        <a class="nav-link" id="tab-register" data-mdb-pill-init href="#pills-register" role="tab"
+           aria-controls="pills-register" aria-selected="false">Register</a>
+    </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
+        <form method="POST" action="{{ url_for('login') }}">
+            <div class="text-center mb-3">
+                <p>Sign in:</p>
+            </div>
+
+            <!-- Username input -->
+            <div data-mdb-input-init class="form-outline mb-4">
+                <input type="text" id="username" name="username" class="form-control" required />
+                <label class="form-label" for="username">Username</label>
+            </div>
+
+            <!-- Password input -->
+            <div data-mdb-input-init class="form-outline mb-4">
+                <input type="password" id="password" name="password" class="form-control" required />
+                <label class="form-label" for="password">Password</label>
+            </div>
+
+            <!-- Remember me checkbox and forgot password link -->
+            <div class="row mb-4">
+                <div class="col-md-6 d-flex justify-content-center">
+                    <div class="form-check mb-3 mb-md-0">
+                        <input class="form-check-input" type="checkbox" value="" id="rememberMe" checked />
+                        <label class="form-check-label" for="rememberMe"> Remember me </label>
+                    </div>
+                </div>
+
+                <div class="col-md-6 d-flex justify-content-center">
+                    <a href="#!">Forgot password?</a>
+                </div>
+            </div>
+
+            <!-- Submit button -->
+            <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-4">Sign in</button>
+
+            <!-- Register link -->
+            <div class="text-center">
+                <p>Not a member? <a href="{{ url_for('register') }}">Register</a></p>
+            </div>
+        </form>
+    </div>
+
+    <div class="tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="tab-register">
+        <form method="POST" action="{{ url_for('register') }}">
+            <div class="text-center mb-3">
+                <p>Register:</p>
+            </div>
+
+            <!-- Name input -->
+            <div data-mdb-input-init class="form-outline mb-4">
+                <input type="text" id="name" name="name" class="form-control" required />
+                <label class="form-label" for="name">Name</label>
+            </div>
+
+            <!-- Username input -->
+            <div data-mdb-input-init class="form-outline mb-4">
+                <input type="text" id="username" name="username" class="form-control" required />
+                <label class="form-label" for="username">Username</label>
+            </div>
+
+            <!-- Email input -->
+            <div data-mdb-input-init class="form-outline mb-4">
+                <input type="email" id="email" name="email" class="form-control" required />
+                <label class="form-label" for="email">Email</label>
+            </div>
+
+            <!-- Password input -->
+            <div data-mdb-input-init class="form-outline mb-4">
+                <input type="password" id="password" name="password" class="form-control" required />
+                <label class="form-label" for="password">Password</label>
+            </div>
+
+            <!-- Repeat Password input -->
+            <div data-mdb-input-init class="form-outline mb-4">
+                <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" required />
+                <label class="form-label" for="confirmPassword">Confirm password</label>
+            </div>
+
+            <!-- Agree to terms checkbox -->
+            <div class="form-check d-flex justify-content-center mb-4">
+                <input class="form-check-input me-2" type="checkbox" value="" id="agreeTerms" required />
+                <label class="form-check-label" for="agreeTerms">
+                    I have read and agree to the terms
+                </label>
+            </div>
+
+            <!-- Submit button -->
+            <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-3">Register</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
